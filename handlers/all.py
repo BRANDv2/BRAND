@@ -51,7 +51,7 @@ def allGP(client, message,redis):
         Bot("sendMessage",{"chat_id":chatID,"text":r.userNocc,"reply_to_message_id":message.message_id,"parse_mode":"html"})
 
     if re.search(c.sors,text):
-      kb = InlineKeyboardMarkup([[InlineKeyboardButton("قناه السورس 📢", url="t.me/wzsss")],[InlineKeyboardButton("تواصل السورس 💬", url="t.me/vorclbot")],[InlineKeyboardButton("شروحات السورس 📑", url="t.me/jjjse")]])
+      kb = InlineKeyboardMarkup([[InlineKeyboardButton("BRANDv2", url="t.me/CXRCX")],[InlineKeyboardButton("  ", url="t.me/A_5bot")],[InlineKeyboardButton("  ", url="t.me/tshaketeam")]])
       Botuser = client.get_me().username
       Bot("sendMessage",{"chat_id":chatID,"text":r.sors.format("@"+Botuser),"disable_web_page_preview":True,"reply_to_message_id":message.message_id,"parse_mode":"markdown","reply_markup":kb})
     
@@ -64,7 +64,7 @@ def allGP(client, message,redis):
       reply_markup = getOR(rank,r,userID)
       Bot("sendMessage",{"chat_id":chatID,"text":r.Showall,"reply_to_message_id":message.message_id,"parse_mode":"html","disable_web_page_preview":True,"reply_markup":reply_markup})
 
-    if text == "عدد الجروب" and (rank is not False or rank is not  0 ):
+    if text == " " and (rank is not False or rank is not  0 ):
       from pyrogram.api.functions.channels import GetFullChannel
       chat = client.resolve_peer(chatID)
       full_chat = client.send(GetFullChannel(channel=chat)).full_chat
@@ -113,9 +113,9 @@ def allGP(client, message,redis):
       #   Bot("sendMessage",{"chat_id":chatID,"text":r.RID.format(userID),"reply_to_message_id":message.message_id,"parse_mode":"html","reply_markup":reply_markup})
 
 
-    if text == "رتبتي":
+    if text == "":
       t = IDrank(redis,userID,chatID,r)
-      Bot("sendMessage",{"chat_id":chatID,"text":f"៛ موقعك : {t}","reply_to_message_id":message.message_id,"parse_mode":"html"})
+      Bot("sendMessage",{"chat_id":chatID,"text":f"  : {t}","reply_to_message_id":message.message_id,"parse_mode":"html"})
     if text == c.ID and not redis.sismember("{}Nbot:IDSend".format(BOT_ID),chatID) and message.reply_to_message:
       us = message.reply_to_message.from_user.id
       rusername = message.reply_to_message.from_user.username
@@ -251,4 +251,3 @@ def allGP(client, message,redis):
           traceback.print_exc()
           print(e)
           pass
-
